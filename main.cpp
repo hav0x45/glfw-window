@@ -16,8 +16,13 @@ int main() {
         return -1;
     }
 
-    while(!GetAsyncKeyState(VK_ESCAPE)) {
-        std::cout << "Hello!" << std::endl;
+    bool running = true;
+
+    while(running) {
+        if (GetAsyncKeyState(VK_ESCAPE)) {
+            glfwTerminate();
+            return 1;
+        }
     }
 
     Sleep(5000);
